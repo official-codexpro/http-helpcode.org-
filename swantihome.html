@@ -1,0 +1,244 @@
+<!-- ==================================================================================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- ==================================================================================================================== -->
+<style>
+/* start nev hero css */
+:root{--primary-accent:#FF4747;--dark-text:#000;--white-text:#FFF;--nav-bg:#FFF;--menu-width:95%;--menu-push-amount:95%;}
+body{transition:transform .4s ease-in-out;}
+.menu-wrapper{display:none;}
+.mega-menu{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;padding:100px 30px 80px!important;box-sizing:border-box!important;display:flex;justify-content:space-between;align-items:flex-start;gap:100px;margin-left:0!important;opacity:1!important;pointer-events:auto!important;}
+.overlay{z-index:1100!important;transition:opacity .3s ease;}
+body.nav-open .overlay{opacity:1!important;pointer-events:auto!important;}
+@media(max-width:1200px){
+body.nav-open{transform:translateX(var(--menu-push-amount));}
+nav a[href="#"][style*="font-size:24px"]{display:block!important;font-size:20px!important;}
+#toggleBtn{display:block!important;}
+nav{width:100%!important;padding:15px 20px!important;justify-content:space-between!important;border-radius:0!important;right:0!important;}
+#menuLinks{display:none!important;}
+.menu-wrapper{display:none;}
+}
+@media(min-width:1201px){
+body{margin:0 5%;}
+nav a[href="#"][style*="font-size:24px"]{display:none!important;}
+#toggleBtn{display:none!important;}
+.menu-wrapper{display:block!important;position:absolute!important;width:100%!important;height:50vh!important;top:0!important;right:0!important;z-index:900!important;transform:translateX(0)!important;background:transparent!important;}
+.mega-menu{opacity:0!important;pointer-events:none!important;padding:100px 10% 80px!important;flex-direction:row!important;gap:100px!important;transition:opacity .3s ease;}
+body.nav-open .mega-menu{opacity:1!important;pointer-events:auto!important;}
+body.nav-open{transform:translateX(0)!important;}
+body.nav-open .overlay{opacity:0!important;pointer-events:none!important;}
+}
+@media(max-width:992px){
+.menu-wrapper{display:none;}
+.hero-text{bottom:50px!important;left:20px!important;padding-right:20px!important;}
+.hero-text h1{font-size:32px!important;}
+.mega-menu{display:none!important;}
+}
+/* <!-- end nev hero styleing --> */
+</style>
+</head>
+<body>
+<!-- ==================================================================================================================== -->
+
+    <!--start nev hero section -->
+    <div class="hero" style="height:90vh;background:url('larm-rmah-AEaTUnvneik-unsplash.jpg') center/cover no-repeat;position:relative;font-family:'Poppins',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:0;"></div>
+  <nav style="position:absolute;top:0;right:0;width:70%!important;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;z-index:1000;transition:.3s ease;">
+    <a href="#" style="margin-right:40px;text-decoration:none;color:#FF4747;font-size:24px;font-weight:700;font-family:'Poppins',sans-serif;">Swaniti</a>
+    <ul id="menuLinks" style="display:flex;gap:45px;list-style:none;margin:0;padding:0;">
+      <li><a href="swantihome.html" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Poppins',sans-serif;">Centers</a></li>
+      <li><a href="swantiaboutus.html" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Poppins',sans-serif;">About us</a></li>
+      <li><a href="home.html" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Poppins',sans-serif;">Impact</a></li>
+      <li><a href="home.html" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Poppins',sans-serif;">Research and Insights</a></li>
+      <li><a href="home.html" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Poppins',sans-serif;">Events</a></li>
+    </ul>
+    <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+  </nav>
+
+  <div class="menu-wrapper">
+    <div class="mega-menu" style="background:#FF4747;color:#FFF;">
+      <div>
+        <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Poppins',sans-serif;">Corporate & Impact Partners</h2>
+        <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Poppins',sans-serif;">Partner with us to create sustainable projects with measurable results for social good.</p>
+      </div>
+      <div style="display:flex;gap:120px;">
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">Global Partners</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">Local Initiatives</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">CSR Projects</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">Foundations & Trusts</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">Social Enterprises</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:5px;font-size:16px;font-family:'Poppins',sans-serif;">Future Collaborations</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:900px;z-index:10;">
+    <h1 style="font-size:55px;margin-bottom:18px;font-family:'Poppins',sans-serif;">Transforming Communities Through Evidence-Based Policy</h1>
+    <p style="font-size:18px;line-height:1.7;margin-bottom:25px;font-family:'Poppins',sans-serif;">We empower governments and communities to create lasting change through rigorous research and innovative solutions.</p>
+    <a href="#" style="background:#FF4747;color:#FFF;padding:14px 28px;text-decoration:none;border-radius:8px;font-weight:600;transition:.3s;display:inline-block;font-family:'Poppins',sans-serif;">Our impact</a>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div>
+<!--end nev hero section-->
+
+<!-- ==================================================================================================================== -->
+
+<!-- start score section here -->
+ <section style="background:#FFF;padding:60px 5%;text-align:center;font-family:'Montserrat',sans-serif;margin-bottom:-7%;">
+  <h2 style="color:#000;font-size:36px;font-weight:800;margin-bottom:10px;text-transform:uppercase;letter-spacing:5px;">Verifiable Impact</h2>
+  <div style="width:60px;height:3px;background:#FF4747;margin:0 auto 50px;border-radius:2px;"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:25px;max-width:1100px;margin:0 auto;">
+    <div style="background:#FFF;padding:30px 20px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:4px solid #FF4747;">
+      <i class="fas fa-hand-holding-usd" style="color:#FF4747;font-size:35px;margin-bottom:10px;"></i>
+      <div style="font-size:40px;font-weight:900;color:#000;margin-bottom:3px;line-height:1;">165Mn+</div>
+      <div style="font-size:12px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.5px;opacity:.9;">Funds Mobilised</div>
+    </div>
+
+    <div style="background:#FFF;padding:30px 20px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:4px solid #FFBD77;">
+      <i class="fas fa-gavel" style="color:#FFBD77;font-size:35px;margin-bottom:10px;"></i>
+      <div style="font-size:40px;font-weight:900;color:#000;margin-bottom:3px;line-height:1;">35+</div>
+      <div style="font-size:12px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.5px;opacity:.9;">Policies Reformed</div>
+    </div>
+
+    <div style="background:#FFF;padding:30px 20px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:4px solid #FF4747;">
+      <i class="fas fa-globe-americas" style="color:#FF4747;font-size:35px;margin-bottom:10px;"></i>
+      <div style="font-size:40px;font-weight:900;color:#000;margin-bottom:3px;line-height:1;">8+</div>
+      <div style="font-size:12px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.5px;opacity:.9;">Global Countries</div>
+    </div>
+
+    <div style="background:#FFF;padding:30px 20px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.08);border-top:4px solid #FFBD77;">
+      <i class="fas fa-users" style="color:#FFBD77;font-size:35px;margin-bottom:10px;"></i>
+      <div style="font-size:40px;font-weight:900;color:#000;margin-bottom:3px;line-height:1;">70+</div>
+      <div style="font-size:12px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:1.5px;opacity:.9;">Global Partners</div>
+    </div>
+  </div>
+
+  <div style="max-width:700px;margin:40px auto 0;padding:15px;border-top:1px solid rgba(0,0,0,.1);">
+    <p style="font-size:16px;font-style:italic;color:#000;font-weight:400;font-family:'Poppins',sans-serif;">
+      Driving <strong style="color:#FF4747;font-weight:700;">23 Ongoing Initiatives</strong> worldwide.
+    </p>
+  </div>
+</section>
+<!-- end score section here -->
+
+<!-- ====================================================================================================================-->
+   
+<!--Start About us section-->
+<section style="padding:100px 0;background:#fff;text-align:center;font-family:'Montserrat',sans-serif;">
+<div style="max-width:800px;margin:0 auto;padding:0 20px;">
+<h2 style="color:#FF4747;font-size:26px;font-weight:700;margin-bottom:40px;letter-spacing:1.5px;text-transform:uppercase;">About Us</h2>
+<p style="font-size:19px;color:#000;line-height:1.7;margin-bottom:50px;font-weight:300;">At <strong style="font-weight:600;color:#FF4747;">Swaniti</strong>, we have a deep understanding of how to leverage <strong style="font-weight:600;color:#FF4747;">political economy</strong> to drive scalable and long-term change in <strong style="font-weight:600;color:#FF4747;">energy transition</strong>. Working globally, we operate at the intersection of <strong style="font-weight:600;color:#FF4747;">climate, governance, and community</strong> to prompt action, unlock critical resources, and build agency amongst local stakeholders.</p>
+<a href="#about-us" style="background:linear-gradient(90deg,#FF4747,#FFBD77);color:#fff;padding:14px 30px;text-decoration:none;text-transform:uppercase;font-size:14px;font-weight:600;border-radius:4px;transition:.3s;display:inline-block;">Learn More About Us</a>
+</div>
+</section>
+<style>@media(max-width:991px){section:nth-child(2){padding:80px 10px!important;}section:nth-child(2)p{font-size:17px!important;margin-bottom:30px!important;}}@media(max-width:600px){section:nth-child(2)h2{font-size:22px!important;}}</style>
+ <!-- end about us section -->
+
+ <!-- =====================================================================================================================-->
+
+ <!-- start globe section here -->
+  <div class="working-section" style="display:flex;min-height:100vh;width:100%;overflow:hidden;position:relative;background:#fff;flex-wrap:wrap;">
+<div style="position:absolute;top:0;left:50%;width:50%;height:100%;background:#f3f3ed;z-index:0;"></div>
+<div style="width:50%;padding:4rem 6rem;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;background:#fff;z-index:10;position:relative;">
+<div><div style="display:flex;align-items:center;font-size:1.25rem;font-weight:600;margin-bottom:3rem;color:#FF4747;"><svg style="width:1.5rem;height:1.5rem;margin-right:.5rem;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.5 2.5a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"/></svg><span style="font-weight:300;font-size:1.5rem;letter-spacing:-.02em;">swaniti.com</span></div>
+<h1 style="font-size:4.5rem;font-weight:800;color:#111;margin-bottom:2rem;line-height:1.1;">Working Area</h1>
+<p style="color:#555;font-size:1.125rem;margin-bottom:2rem;max-width:32rem;">Our work is focused on ensuring education, health, and equal opportunities for every child.</p>
+<a href="http://swaniti.com/" style="color:#FF4747;font-weight:600;font-size:1.125rem;display:flex;align-items:center;text-decoration:none;">Explore Our Working Area<svg style="width:1.25rem;height:1.25rem;margin-left:.5rem;transition:transform .3s;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a></div>
+<div style="background:#FF4747;color:#fff;padding:2rem 3rem;border-radius:.5rem;margin-top:2rem;margin-left:-6rem;padding-left:6rem;padding-bottom:6rem;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+<div style="font-size:1.1rem;font-weight:500;line-height:2;">US</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Italia</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Dubai</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Mozambico</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Nepal</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Kerla</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Tunisia</div><div style="font-size:1.1rem;font-weight:500;line-height:2;">Svizzera</div></div></div>
+<div style="width:50%;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:#f3f3ed;"><div style="position:absolute;top:0;left:-5%;height:100%;width:20%;z-index:5;background:linear-gradient(to right,#fff 0%,rgba(243,243,237,0.6) 50%,#f3f3ed 100%);pointer-events:none;"></div><div id="chartdiv" style="width:60vw;height:60vw;max-width:900px;max-height:900px;z-index:1;"></div></div>
+</div>
+<style>@media(max-width:992px){.working-section{display:none!important;}}</style>
+<script src="https://www.amcharts.com/lib/4/core.js"></script><script src="https://www.amcharts.com/lib/4/maps.js"></script><script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script><script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script>am4core.useTheme(am4themes_animated);var chart=am4core.create("chartdiv",am4maps.MapChart);chart.geodata=am4geodata_worldLow;chart.projection=new am4maps.projections.Orthographic();chart.panBehavior="rotateLongLat";chart.deltaLatitude=-20;chart.logo.disabled=true;chart.seriesContainer.mouseOptions.zoomable=false;chart.seriesContainer.mouseOptions.wheelable=false;chart.backgroundSeries.mapPolygons.template.polygon.fill=am4core.color("#ffffff");chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity=1;var polygonSeries=chart.series.push(new am4maps.MapPolygonSeries());polygonSeries.useGeodata=true;polygonSeries.exclude=["AQ"];var polygonTemplate=polygonSeries.mapPolygons.template;polygonTemplate.fill=am4core.color("#c9c9c9");polygonTemplate.stroke=am4core.color("#666");polygonTemplate.strokeWidth=0.8;var hs=polygonTemplate.states.create("hover");hs.properties.fill=am4core.color("#bfbfbf");var graticuleSeries=chart.series.push(new am4maps.GraticuleSeries());graticuleSeries.mapLines.template.line.stroke=am4core.color("#ccc");graticuleSeries.mapLines.template.line.strokeOpacity=.6;graticuleSeries.fitExtent=false;var imageSeries=chart.series.push(new am4maps.MapImageSeries());imageSeries.data=[{title:"Italy",latitude:42.5,longitude:12.5},{title:"Switzerland",latitude:46.8,longitude:8.3},{title:"Tunisia",latitude:34,longitude:9},{title:"Libya",latitude:26,longitude:17},{title:"Congo (DRC)",latitude:-2.5,longitude:23},{title:"Mozambique",latitude:-19,longitude:34},{title:"Nepal",latitude:28,longitude:84},{title:"Cambodia",latitude:13,longitude:105}];imageSeries.mapImages.template.nonScaling=true;var circle=imageSeries.mapImages.template.createChild(am4core.Circle);circle.radius=6;circle.fill=am4core.color("#EE2A5F");circle.strokeOpacity=0;var glow=new am4core.DropShadowFilter();glow.blur=10;glow.opacity=.8;glow.color=am4core.color("#EE2A5F");circle.filters.push(glow);let anim;function rotate(){anim=chart.animate({property:"deltaLongitude",to:chart.deltaLongitude+360},30000,am4core.ease.linear);anim.events.on("animationended",rotate);}window.onload=rotate;chart.seriesContainer.events.on("down",()=>{if(anim){anim.stop();anim=null;}});</script>
+<!-- end globe section here -->
+
+ <!-- =====================================================================================================================-->
+
+ <!-- START OUR APPROACH SECTION -->
+<section style="padding:120px 20px;background:#fff;text-align:center;font-family:'Poppins',sans-serif;">
+<div style="max-width:1100px;margin:0 auto;">
+<h2 style="color:#1a1a1a;font-size:40px;font-weight:700;margin-bottom:70px;text-transform:uppercase;letter-spacing:5px;position:relative;display:inline-block;">OUR APPROACH
+<span style="position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:120px;height:3px;background:#FF4747;border-radius:1px;"></span></h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;text-align:left;">
+<div style="padding:40px 30px;border:1px solid #e9e9e9;border-radius:4px;background:#fcfcfc;box-shadow:0 2px 5px rgba(0,0,0,.03);transition:.3s;" onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,.08)';this.style.borderColor='#FF4747';" onmouseout="this.style.boxShadow='0 2px 5px rgba(0,0,0,.03)';this.style.borderColor='#e9e9e9';">
+<div style="display:flex;align-items:center;margin-bottom:15px;"><i class="fas fa-sitemap" style="color:#FF4747;font-size:28px;margin-right:15px;width:30px;text-align:center;"></i><h3 style="color:#1a1a1a;font-size:19px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Systemic Reforms</h3></div>
+<p style="font-size:16px;color:#555;line-height:1.8;">Our work is rooted in improving the lives of the most vulnerable and disadvantaged through a <b>comprehensive and systemic approach</b> to governance and change.</p></div>
+
+<div style="padding:40px 30px;border:1px solid #e9e9e9;border-radius:4px;background:#fcfcfc;box-shadow:0 2px 5px rgba(0,0,0,.03);transition:.3s;" onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,.08)';this.style.borderColor='#FF4747';" onmouseout="this.style.boxShadow='0 2px 5px rgba(0,0,0,.03)';this.style.borderColor='#e9e9e9';">
+<div style="display:flex;align-items:center;margin-bottom:15px;"><i class="fas fa-hand-holding-usd" style="color:#FF4747;font-size:28px;margin-right:15px;width:30px;text-align:center;"></i><h3 style="color:#1a1a1a;font-size:19px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Unlocking Willingness</h3></div>
+<p style="font-size:16px;color:#555;line-height:1.8;">Swaniti's key area of focus is the political economy. We <b>unlock public funds</b> by influencing stakeholders and activities within the political sphere.</p></div>
+
+<div style="padding:40px 30px;border:1px solid #e9e9e9;border-radius:4px;background:#fcfcfc;box-shadow:0 2px 5px rgba(0,0,0,.03);transition:.3s;" onmouseover="this.style.boxShadow='0 15px 35px rgba(0,0,0,.08)';this.style.borderColor='#FF4747';" onmouseout="this.style.boxShadow='0 2px 5px rgba(0,0,0,.03)';this.style.borderColor='#e9e9e9';">
+<div style="display:flex;align-items:center;margin-bottom:15px;"><i class="fas fa-hands-helping" style="color:#FF4747;font-size:28px;margin-right:15px;width:30px;text-align:center;"></i><h3 style="color:#1a1a1a;font-size:19px;font-weight:800;margin:0;text-transform:uppercase;letter-spacing:.5px;">Service Delivery</h3></div>
+<p style="font-size:16px;color:#555;line-height:1.8;">We work across the <b>Global South</b> in economically disadvantaged geographies to achieve the strongest impact and <b>strengthen public service delivery</b>.</p></div>
+</div></div></section>
+
+<style>@media(max-width:992px){section[style*="OUR APPROACH"]{padding:60px 5%!important;text-align:center!important;}}</style>
+
+<!-- END OUR APPROACH SECTION -->
+
+ <!-- =====================================================================================================================-->
+
+<!-- start donation section here -->
+
+<section class="donation-sec" style="background:url('sovannkiry-sim-41fytYZ_-mM-unsplash.jpg') center top/cover no-repeat;height:70vh;display:flex;align-items:center;padding:0 40px;position:relative;color:#fff;font-family:'Montserrat',sans-serif;">
+<div style="position:absolute;inset:0;background:rgba(0,0,0,.1);"></div>
+<div style="max-width:1200px;width:100%;margin:auto;position:relative;z-index:10;display:flex;justify-content:flex-end;">
+<div style="width:50%;text-align:left;padding-left:50px;">
+<h1 style="font-size:52px;font-weight:700;line-height:1.1;margin-bottom:20px;">Education for every child</h1>
+<p style="font-size:18px;font-weight:300;margin-bottom:40px;">Together, we can end educational poverty. Join the Helpcode community.</p>
+<div style="display:flex;gap:15px;margin-bottom:25px;">
+<div style="background:#3a3a3a;color:#fff;padding:15px 20px;text-align:center;font-size:16px;font-weight:600;text-transform:uppercase;width:120px;"><span style="display:block;font-size:26px;font-weight:800;margin-bottom:5px;">25€</span>una tantum</div>
+<div style="background:#FF4747;color:#fff;padding:15px 20px;text-align:center;font-size:16px;font-weight:600;text-transform:uppercase;width:120px;"><span style="display:block;font-size:26px;font-weight:800;margin-bottom:5px;">9€</span>al mese</div>
+<div style="background:#3a3a3a;color:#fff;padding:15px 20px;text-align:center;font-size:16px;font-weight:600;text-transform:uppercase;width:120px;"><span style="display:block;font-size:26px;font-weight:800;margin-bottom:5px;">25€</span>al mese</div>
+</div>
+<p style="font-size:14px;font-weight:400;margin-bottom:25px;">Donate now: Support a child in need.</p>
+<a href="#" style="background:#fff;color:#FF4747;padding:15px 40px;font-size:16px;font-weight:700;text-decoration:none;border:2px solid #fff;display:inline-block;transition:.3s;">Donate Now</a>
+</div></div></section>
+<style>@media(max-width:992px){.donation-sec{display:none!important;}}</style>
+
+<!-- end donation section here -->
+
+ <!-- =====================================================================================================================-->
+
+ <!-- start footer section here -->
+
+ <footer style="background:var(--accent-color,#FF4747);color:#fff;padding-top:80px;border-top:8px solid var(--secondary-accent,#ffffff);font-family:'Poppins',sans-serif;position:relative;z-index:10;">
+<div style="max-width:1200px;margin:auto;padding:0 20px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;padding-bottom:50px;">
+<div><h3 style="font-size:20px;font-weight:800;margin-bottom:15px;text-transform:uppercase;">Logo Swaniti Global</h3><p style="font-size:14px;line-height:1.6;margin-bottom:20px;">Independent research organization driving evidence-based policy and social change.</p><div style="display:flex;gap:15px;"><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-twitter"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-linkedin-in"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-facebook-f"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-youtube"></i></a></div></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Quick Links</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px;"><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Home</a></li><li><a href="swantiaboutus.html" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">About Us</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Impact</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Research</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Events</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Centers</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px;"><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">GCDI</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">CLEFS</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Sub National</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Green Livelihood</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Contact Us</h3><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--secondary-accent,#fffefe);width:20px;margin-right:10px;"></i>New Delhi, India</p><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-envelope" style="color:var(--secondary-accent,#ffffff);width:20px;margin-right:10px;"></i><a href="mailto:info@swanitiglobal.org" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">info@swanitiglobal.org</a></p><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-phone-alt" style="color:var(--secondary-accent,#ffffff);width:20px;margin-right:10px;"></i><a href="tel:+919821959901" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#fff)'" onmouseout="this.style.color='#fff'">+91 9821959901</a></p></div></div>
+<hr style="border:none;border-top:1px solid rgba(255, 255, 255, 0.4);">
+<div style="display:flex;flex-direction:column;align-items:center;padding:20px 0;font-size:14px;"><p style="margin:5px 0;">© 2025 Swaniti Global. All rights reserved.</p><div style="display:flex;gap:15px;"><a href="#" style="color:#fff;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">Privacy Policy</a><a href="#" style="color:#fff;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">Terms of Service</a></div></div></div></footer>
+
+<!-- End donation section -->
+
+ <!-- =====================================================================================================================-->
+
+</body>
+<!-- script nev hero section start -->
+ <script>
+const body=document.body,nav=document.querySelector('nav');
+nav.onmouseenter=()=>window.innerWidth>1200&&body.classList.add('nav-open');
+nav.onmouseleave=()=>window.innerWidth>1200&&body.classList.remove('nav-open');
+</script>
+<!-- end script of nev hero section  -->
+</html>
+ <!-- =====================================================================================================================-->
