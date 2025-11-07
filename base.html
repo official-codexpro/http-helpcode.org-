@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Swaniti{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+<style>
+/* start nav hero css */
+:root{--primary-accent:#FF4747;--dark-text:#000;--white-text:#FFF;--nav-bg:#FFF;--menu-width:95%;--menu-push-amount:95%;}
+body{font-family:'Inter var',sans-serif;transition:transform .4s ease-in-out;}
+.menu-wrapper{display:none;}
+.mega-menu{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;padding:100px 30px 80px!important;box-sizing:border-box!important;display:flex;justify-content:space-between;align-items:flex-start;gap:100px;margin-left:0!important;opacity:1!important;pointer-events:auto!important;}
+.overlay{z-index:1100!important;transition:opacity .3s ease;}
+body.nav-open .overlay{opacity:1!important;pointer-events:auto!important;}
+@media(max-width:1200px){
+body.nav-open{transform:translateX(var(--menu-push-amount));}
+nav a[href="#"][style*="font-size:24px"]{display:block!important;font-size:20px!important;}
+#toggleBtn{display:block!important;}
+nav{width:100%!important;padding:15px 20px!important;justify-content:space-between!important;border-radius:0!important;right:0!important;}
+#menuLinks{display:none!important;}
+.menu-wrapper{display:none;}
+}
+@media(min-width:1201px){
+body{margin:0 5%;}
+nav a[href="#"][style*="font-size:24px"]{display:none!important;}
+#toggleBtn{display:none!important;}
+.menu-wrapper{display:block!important;position:absolute!important;width:100%!important;height:50vh!important;top:0!important;right:0!important;z-index:900!important;transform:translateX(0)!important;background:transparent!important;}
+.mega-menu{opacity:0!important;pointer-events:none!important;padding:100px 10% 80px!important;flex-direction:row!important;gap:100px!important;transition:opacity .3s ease;}
+body.nav-open .mega-menu{opacity:1!important;pointer-events:auto!important;}
+body.nav-open{transform:translateX(0)!important;}
+body.nav-open .overlay{opacity:0!important;pointer-events:none!important;}
+}
+@media(max-width:992px){
+  body{margin: 0;}
+.menu-wrapper{display:none;}
+.hero-text{bottom:50px!important;left:20px!important;padding-right:20px!important;}
+.hero-text h1{font-size:32px!important;}
+.mega-menu{display:none!important;}
+}
+/* end nav hero styling */
+{% block extra_css %}{% endblock %}
+</style>
+</head>
+<body>
+
+{% block content %}{% endblock %}
+
+<!-- start footer section here -->
+<footer style="background:var(--accent-color,#FF4747);color:#fff;padding-top:80px;border-top:8px solid var(--secondary-accent,#ffffff);font-family:'Inter var',sans-serif;position:relative;z-index:10;">
+<div style="max-width:1200px;margin:auto;padding:0 20px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;padding-bottom:50px;">
+<div><h3 style="font-size:20px;font-weight:800;margin-bottom:15px;text-transform:uppercase;">Logo Swaniti Global</h3><p style="font-size:14px;line-height:1.6;margin-bottom:20px;">Independent research organization driving evidence-based policy and social change.</p><div style="display:flex;gap:15px;"><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-twitter"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-linkedin-in"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-facebook-f"></i></a><a href="#" style="color:#fff;font-size:20px;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'"><i class="fab fa-youtube"></i></a></div></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Quick Links</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px;"><li><a href="{% url 'v2:home' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Home</a></li><li><a href="{% url 'v2:about' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">About Us</a></li><li><a href="{% url 'v2:impact' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Impact</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Research</a></li><li><a href="#" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Events</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Centers</h3><ul style="list-style:none;padding:0;margin:0;line-height:1.8;font-size:14px;"><li><a href="{% url 'v2:centre_detail' 'gcdi' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">GCDI</a></li><li><a href="{% url 'v2:centre_detail' 'clefs' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">CLEFS</a></li><li><a href="{% url 'v2:centre_detail' 'centre-for-sub-national-engagement' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Sub National</a></li><li><a href="{% url 'v2:centre_detail' 'centre-for-green-livelihood' %}" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)';this.style.textDecoration='underline'" onmouseout="this.style.color='#fff';this.style.textDecoration='none'">Green Livelihood</a></li></ul></div>
+<div><h3 style="font-size:16px;font-weight:700;margin-bottom:20px;text-transform:uppercase;">Contact Us</h3><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--secondary-accent,#fffefe);width:20px;margin-right:10px;"></i>New Delhi, India</p><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-envelope" style="color:var(--secondary-accent,#ffffff);width:20px;margin-right:10px;"></i><a href="mailto:info@swanitiglobal.org" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">info@swanitiglobal.org</a></p><p style="display:flex;align-items:center;font-size:14px;"><i class="fas fa-phone-alt" style="color:var(--secondary-accent,#ffffff);width:20px;margin-right:10px;"></i><a href="tel:+919821959901" style="color:#fff;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#fff)'" onmouseout="this.style.color='#fff'">+91 9821959901</a></p></div></div>
+<hr style="border:none;border-top:1px solid rgba(255, 255, 255, 0.4);">
+<div style="display:flex;flex-direction:column;align-items:center;padding:20px 0;font-size:14px;"><p style="margin:5px 0;">© 2025 Swaniti Global. All rights reserved.</p><div style="display:flex;gap:15px;"><a href="#" style="color:#fff;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">Privacy Policy</a><a href="#" style="color:#fff;font-weight:600;text-decoration:none;" onmouseover="this.style.color='var(--secondary-accent,#111)'" onmouseout="this.style.color='#fff'">Terms of Service</a></div></div></div></footer>
+<!-- End footer section -->
+
+<!-- script nav hero section start {aak} -->
+<script>
+const body=document.body,nav=document.querySelector('nav'),mega=document.querySelector('.mega-menu');
+function openMenu(){if(window.innerWidth>1200)body.classList.add('nav-open');}
+function closeMenu(){if(window.innerWidth>1200)body.classList.remove('nav-open');}
+nav.addEventListener('mouseenter',openMenu);
+nav.addEventListener('mouseleave',e=>{
+  if(!mega.contains(e.relatedTarget))closeMenu();
+});
+mega.addEventListener('mouseleave',e=>{
+  if(!nav.contains(e.relatedTarget))closeMenu();
+});
+mega.addEventListener('mouseenter',openMenu);
+
+
+
+//{aak comment out }
+// Function to show menu 
+// function showMenu() {
+//   if (window.innerWidth > 1200) {
+//     clearTimeout(hideTimeout);
+//     body.classList.add('nav-open');
+//   }
+// }
+
+// Function to hide menu with delay
+function hideMenu() {
+  if (window.innerWidth > 1200) {
+    hideTimeout = setTimeout(() => {
+      body.classList.remove('nav-open');
+    }, 100); // Small delay to allow cursor movement
+  }
+}
+
+// Add event listeners to nav
+if (nav) {
+  nav.addEventListener('mouseenter', showMenu);
+  nav.addEventListener('mouseleave', hideMenu);
+}
+
+// Add event listeners to menu wrapper to keep it open when hovering over mega menu
+if (menuWrapper) {
+  menuWrapper.addEventListener('mouseenter', showMenu);
+  menuWrapper.addEventListener('mouseleave', hideMenu);
+}
+</script>
+<!-- end script of nav hero section  -->
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

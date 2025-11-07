@@ -1,0 +1,368 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}{{ centre.full_name }} - Swaniti{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Centre Detail Page Styling */
+body {
+  font-family: 'Inter var', sans-serif;
+}
+
+.centre-hero {
+  height: 75vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.centre-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(255,71,71,0.85));
+  z-index: 1;
+}
+
+.centre-hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 80px 80px;
+  color: #FFF;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.centre-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.centre-hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.centre-hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 900px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.centre-content {
+  padding: 80px 5%;
+  background: #fff;
+}
+
+.centre-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.content-section {
+  margin-bottom: 70px;
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  color: #FF4747;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #FF4747;
+  border-radius: 2px;
+}
+
+.content-text {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* HTML Content Styling */
+.html-content h3 {
+  color: #1a1a1a;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 50px 0 20px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content h3:first-child {
+  margin-top: 0;
+}
+
+.html-content h4 {
+  color: #FF4747;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 35px 0 18px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content h5 {
+  color: #1a1a1a;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 28px 0 15px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content p {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content ul {
+  margin: 20px 0 25px 25px;
+  line-height: 1.9;
+}
+
+.html-content ul li {
+  margin-bottom: 12px;
+  color: #444;
+  font-size: 17px;
+  font-family: 'Inter var', sans-serif;
+}
+
+.html-content strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.html-content em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Feature Box */
+.feature-box {
+  background: #f8f9fa;
+  border-left: 4px solid #FF4747;
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 8px;
+}
+
+.feature-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .centre-hero {
+    height: 60vh;
+  }
+
+  .centre-hero-content {
+    padding: 0 40px 60px;
+  }
+
+  .centre-hero h1 {
+    font-size: 42px;
+  }
+
+  .centre-hero p {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .html-content h3 {
+    font-size: 24px;
+  }
+
+  .html-content h4 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .centre-hero {
+    height: 50vh;
+  }
+
+  .centre-hero-content {
+    padding: 0 20px 40px;
+  }
+
+  .centre-hero h1 {
+    font-size: 32px;
+  }
+
+  .centre-hero p {
+    font-size: 16px;
+  }
+
+  .centre-content {
+    padding: 50px 20px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Centre Hero Section with Navigation -->
+{% if centre.slug == 'gcdi' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/larm-rmah-AEaTUnvneik-unsplash.jpg' %}');">
+{% elif centre.slug == 'clefs' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/bill-wegener-8ldqRkOk5oo-unsplash.jpg' %}');">
+{% elif centre.slug == 'centre-for-sub-national-engagement' %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/sovannkiry-sim-41fytYZ_-mM-unsplash.jpg' %}');">
+{% else %}
+<div class="centre-hero" style="background-image: url('{% static 'v2/images/larm-rmah-AEaTUnvneik-unsplash.jpg' %}');">
+{% endif %}
+  <nav style="position:absolute;top:0;right:0;width:70%!important;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;z-index:1000;transition:.3s ease;">
+    <a href="{% url 'v2:home' %}" style="margin-right:40px;text-decoration:none;color:#FF4747;font-size:24px;font-weight:700;font-family:'Inter',sans-serif;">Swaniti</a>
+    <ul id="menuLinks" style="display:flex;gap:45px;list-style:none;margin:0;padding:0;">
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Centers</a></li>
+      <li><a href="{% url 'v2:about' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">About us</a></li>
+      <li><a href="{% url 'v2:impact' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Impact</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Research and Insights</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter',sans-serif;">Events</a></li>
+    </ul>
+    <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+  </nav>
+
+  <div class="menu-wrapper">
+    <div class="mega-menu" style="background:#FF4747;color:#FFF;">
+      <div>
+        <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Inter',sans-serif;">Our Work</h2>
+        <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Inter',sans-serif;">Discover our centers of excellence and partnership opportunities driving sustainable change worldwide.</p>
+      </div>
+      <div style="display:flex;gap:80px;">
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Centres</h3>
+          <a href="{% url 'v2:centre_detail' 'gcdi' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">GCDI</a>
+          <a href="{% url 'v2:centre_detail' 'clefs' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">CLEFS</a>
+          <a href="{% url 'v2:centre_detail' 'centre-for-sub-national-engagement' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Sub-National Engagement</a>
+          <a href="{% url 'v2:centre_detail' 'centre-for-green-livelihood' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Green Livelihood</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Partners</h3>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Global Partners</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Corporate Collaborations</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Foundations & Trusts</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Social Enterprises</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Get Involved</h3>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Volunteer With Us</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Donate</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Careers</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+  <div class="centre-hero-overlay"></div>
+  <div class="centre-hero-content">
+    <div class="centre-badge">Centre of Excellence</div>
+    <h1>{{ centre.full_name }}</h1>
+    {% if centre.tagline %}
+    <p>{{ centre.tagline }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Centre Content Section -->
+<section class="centre-content">
+  <div class="centre-container">
+
+    {% if centre.description %}
+    <div class="content-section">
+      <h2 class="section-title">About {{ centre.name }}</h2>
+      <p class="content-text">{{ centre.description }}</p>
+    </div>
+    {% endif %}
+
+    {% if centre.about_text %}
+    <div class="content-section">
+      <h2 class="section-title">About the Centre</h2>
+      <p class="content-text">{{ centre.about_text }}</p>
+    </div>
+    {% endif %}
+
+    {% if centre.what_we_do %}
+    <div class="content-section html-content">
+      {{ centre.what_we_do|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.what_makes_unique %}
+    <div class="content-section html-content">
+      {{ centre.what_makes_unique|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.approach %}
+    <div class="content-section html-content">
+      {{ centre.approach|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.areas_of_work %}
+    <div class="content-section html-content">
+      {{ centre.areas_of_work|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.projects %}
+    <div class="content-section html-content">
+      {{ centre.projects|safe }}
+    </div>
+    {% endif %}
+
+    {% if centre.impact %}
+    <div class="content-section">
+      <h2 class="section-title">Impact</h2>
+      <p class="content-text">{{ centre.impact }}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

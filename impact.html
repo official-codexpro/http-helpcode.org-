@@ -1,0 +1,417 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}Impact - Swaniti{% endblock %}
+
+{% block content %}
+<!--start nav hero section -->
+<div class="hero" style="height:90vh;background:url('{% static 'v2/images/larm-rmah-AEaTUnvneik-unsplash.jpg' %}') center/cover no-repeat;position:relative;font-family:'Inter var',sans-serif;">
+  <div style="content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(255,71,71,0.7));z-index:0;"></div>
+  <nav style="position:absolute;top:0;right:0;width:70%!important;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;z-index:1000;transition:.3s ease;">
+    <a href="{% url 'v2:home' %}" style="margin-right:40px;text-decoration:none;color:#FF4747;font-size:24px;font-weight:700;font-family:'Inter var',sans-serif;">Swaniti</a>
+    <ul id="menuLinks" style="display:flex;gap:45px;list-style:none;margin:0;padding:0;">
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Centers</a></li>
+      <li><a href="{% url 'v2:about' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">About us</a></li>
+      <li><a href="{% url 'v2:impact' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Impact</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Research and Insights</a></li>
+      <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Events</a></li>
+    </ul>
+    <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+  </nav>
+
+  <div class="menu-wrapper">
+    <div class="mega-menu" style="background:#FF4747;color:#FFF;">
+      <div>
+        <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Inter var',sans-serif;">Our Work</h2>
+        <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Inter var',sans-serif;">Discover our centers of excellence and partnership opportunities driving sustainable change.</p>
+      </div>
+      <div style="display:flex;gap:80px;">
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:10px;font-family:'Inter var',sans-serif;text-transform:uppercase;letter-spacing:1px;opacity:0.9;">Centres</h3>
+          <a href="{% url 'v2:centre_detail' 'gcdi' %}" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">GCDI</a>
+          <a href="{% url 'v2:centre_detail' 'clefs' %}" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">CLEFS</a>
+          <a href="{% url 'v2:centre_detail' 'centre-for-sub-national-engagement' %}" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Centre for Sub-National Engagement</a>
+          <a href="{% url 'v2:centre_detail' 'centre-for-green-livelihood' %}" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Centre for Green Livelihood</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:10px;font-family:'Inter var',sans-serif;text-transform:uppercase;letter-spacing:1px;opacity:0.9;">Partners</h3>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Global Partners</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Corporate Collaborations</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Foundations & Trusts</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Social Enterprises</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:15px;">
+          <h3 style="font-size:18px;font-weight:800;margin-bottom:10px;font-family:'Inter var',sans-serif;text-transform:uppercase;letter-spacing:1px;opacity:0.9;">Get Involved</h3>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Volunteer With Us</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Donate</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Careers</a>
+          <a href="#" style="color:#FFF;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:8px;font-size:16px;font-family:'Inter var',sans-serif;transition:.3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderColor='#FFF'" onmouseout="this.style.paddingLeft='0';this.style.borderColor='rgba(255,255,255,.2)'">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-text" style="position:absolute;bottom:120px;left:100px;color:#FFF;max-width:1000px;z-index:10;">
+    <div style="display:inline-block;background:rgba(255,71,71,0.9);padding:12px 24px;border-radius:50px;margin-bottom:25px;backdrop-filter:blur(10px);">
+      <span style="font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:2px;">Making a Difference</span>
+    </div>
+    <h1 style="font-size:64px;margin-bottom:25px;font-family:'Inter var',sans-serif;font-weight:900;line-height:1.1;text-shadow:0 4px 20px rgba(0,0,0,0.3);">Transforming Lives Through Impact</h1>
+    <p style="font-size:22px;line-height:1.7;margin-bottom:35px;font-family:'Inter var',sans-serif;max-width:800px;text-shadow:0 2px 10px rgba(0,0,0,0.3);opacity:0.95;">Ensuring public services are delivered to the beneficiary at the last mile through evidence-based policy and collaborative action.</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="#impact-numbers" style="background:#FFF;color:#FF4747;padding:16px 40px;text-decoration:none;border-radius:50px;font-weight:700;font-size:16px;display:inline-block;transition:.3s;box-shadow:0 5px 20px rgba(0,0,0,0.3);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 30px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 5px 20px rgba(0,0,0,0.3)'">
+        <i class="fas fa-chart-line" style="margin-right:10px;"></i>View Our Numbers
+      </a>
+      <a href="#program-impact" style="background:transparent;color:#FFF;padding:16px 40px;text-decoration:none;border-radius:50px;font-weight:700;font-size:16px;display:inline-block;transition:.3s;border:3px solid #FFF;" onmouseover="this.style.background='rgba(255,255,255,0.15)';this.style.transform='translateY(-3px)'" onmouseout="this.style.background='transparent';this.style.transform='translateY(0)'">
+        <i class="fas fa-heart" style="margin-right:10px;"></i>See Our Work
+      </a>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;"></div>
+</div>
+<!--end nav hero section-->
+
+<!-- start impact numbers section here -->
+<section id="impact-numbers" style="background:#FFF;padding:80px 5%;text-align:center;font-family:'Inter var',sans-serif;margin-top:-5%;">
+  <h2 style="color:#000;font-size:42px;font-weight:800;margin-bottom:15px;text-transform:uppercase;letter-spacing:3px;">Impact by Numbers</h2>
+  <div style="width:80px;height:4px;background:#FF4747;margin:0 auto 60px;border-radius:2px;"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1200px;margin:0 auto 50px;">
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #FF4747;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-hand-holding-usd" style="color:#FF4747;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#FF4747;margin-bottom:8px;line-height:1;">165Mn+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Funds Mobilised</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #FFBD77;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-gavel" style="color:#FFBD77;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#FFBD77;margin-bottom:8px;line-height:1;">35+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Policies Reformed</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #667eea;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-globe-americas" style="color:#667eea;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#667eea;margin-bottom:8px;line-height:1;">8+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Global Countries</div>
+    </div>
+
+    <div style="background:#FFF;padding:40px 25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.1);border-left:5px solid #764ba2;transition:transform .3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+      <i class="fas fa-users" style="color:#764ba2;font-size:45px;margin-bottom:15px;"></i>
+      <div style="font-size:48px;font-weight:900;color:#764ba2;margin-bottom:8px;line-height:1;">70+</div>
+      <div style="font-size:14px;font-weight:700;color:#000;text-transform:uppercase;letter-spacing:2px;">Global Partners</div>
+    </div>
+  </div>
+
+  <div style="max-width:800px;margin:40px auto 0;padding:25px;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:12px;box-shadow:0 6px 20px rgba(102, 126, 234, 0.3);">
+    <p style="font-size:20px;font-weight:600;color:#FFF;font-family:'Inter var',sans-serif;margin:0;">
+      <i class="fas fa-project-diagram" style="margin-right:10px;"></i>
+      <strong style="font-weight:800;">23 Ongoing Initiatives</strong> worldwide driving sustainable change
+    </p>
+  </div>
+</section>
+<!-- end impact numbers section here -->
+
+<!-- START PROGRAM IMPACT SECTION -->
+<section id="program-impact" style="padding:120px 5%;background:#f8f9fa;text-align:center;font-family:'Inter var',sans-serif;position:relative;">
+  <div style="max-width:1400px;margin:0 auto;position:relative;z-index:1;">
+    <div style="margin-bottom:80px;">
+      <h2 style="color:#1a1a1a;font-size:48px;font-weight:900;margin-bottom:20px;letter-spacing:-1px;">Program Impact</h2>
+      <div style="width:100px;height:5px;background:#FF4747;margin:0 auto 25px;border-radius:10px;"></div>
+      <p style="font-size:22px;color:#555;max-width:800px;margin:0 auto;line-height:1.7;font-weight:300;">Ensuring public services are delivered to the beneficiary at the last mile.</p>
+    </div>
+
+    <!-- Impact Cards with Images -->
+    <div style="display:grid;gap:50px;margin-top:60px;">
+
+      <!-- Community Empowerment -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#FFF;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .4s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 60px rgba(255,71,71,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="position:relative;min-height:400px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80" alt="Children learning" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(0,0,0,0.3), transparent);"></div>
+        </div>
+        <div style="padding:50px;text-align:left;">
+          <div style="display:inline-block;background:rgba(255,71,71,0.1);padding:12px 20px;border-radius:50px;margin-bottom:20px;">
+            <i class="fas fa-users-cog" style="color:#FF4747;font-size:24px;margin-right:10px;"></i>
+            <span style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Empowerment</span>
+          </div>
+          <h3 style="color:#1a1a1a;font-size:32px;font-weight:800;margin-bottom:20px;letter-spacing:-0.5px;">Community Empowerment</h3>
+          <p style="font-size:18px;color:#555;line-height:1.9;margin:0;">Swaniti's bottom-up approach has ensured that the voices of local communities are heard, fostering a sense of ownership and responsibility towards sustainable practices.</p>
+        </div>
+      </div>
+
+      <!-- Inclusivity and Equity -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#FFF;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .4s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 60px rgba(255,71,71,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="padding:50px;text-align:left;order:1;">
+          <div style="display:inline-block;background:rgba(255,71,71,0.1);padding:12px 20px;border-radius:50px;margin-bottom:20px;">
+            <i class="fas fa-balance-scale" style="color:#FF4747;font-size:24px;margin-right:10px;"></i>
+            <span style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Equity</span>
+          </div>
+          <h3 style="color:#1a1a1a;font-size:32px;font-weight:800;margin-bottom:20px;letter-spacing:-0.5px;">Inclusivity and Equity</h3>
+          <p style="font-size:18px;color:#555;line-height:1.9;margin:0;">Targeting marginalized groups, including SCs, STs, and women, Swaniti has promoted inclusive development, ensuring that the benefits reach the most vulnerable sections of society.</p>
+        </div>
+        <div style="position:relative;min-height:400px;overflow:hidden;order:2;">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Girls education" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to left, rgba(0,0,0,0.3), transparent);"></div>
+        </div>
+      </div>
+
+      <!-- Capacity Building -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#FFF;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .4s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 60px rgba(255,71,71,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="position:relative;min-height:400px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80" alt="Children studying" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(0,0,0,0.3), transparent);"></div>
+        </div>
+        <div style="padding:50px;text-align:left;">
+          <div style="display:inline-block;background:rgba(255,71,71,0.1);padding:12px 20px;border-radius:50px;margin-bottom:20px;">
+            <i class="fas fa-graduation-cap" style="color:#FF4747;font-size:24px;margin-right:10px;"></i>
+            <span style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Building</span>
+          </div>
+          <h3 style="color:#1a1a1a;font-size:32px;font-weight:800;margin-bottom:20px;letter-spacing:-0.5px;">Capacity Building</h3>
+          <p style="font-size:18px;color:#555;line-height:1.9;margin:0;">Training programs and capacity-building sessions have equipped local communities with the skills and knowledge needed to sustain and scale these interventions, promoting long-term resilience.</p>
+        </div>
+      </div>
+
+      <!-- Policy Recommendations -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:#FFF;border-radius:24px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .4s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 60px rgba(255,71,71,.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="padding:50px;text-align:left;order:1;">
+          <div style="display:inline-block;background:rgba(255,71,71,0.1);padding:12px 20px;border-radius:50px;margin-bottom:20px;">
+            <i class="fas fa-file-contract" style="color:#FF4747;font-size:24px;margin-right:10px;"></i>
+            <span style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Policy</span>
+          </div>
+          <h3 style="color:#1a1a1a;font-size:32px;font-weight:800;margin-bottom:20px;letter-spacing:-0.5px;">Policy Recommendations</h3>
+          <p style="font-size:18px;color:#555;line-height:1.9;margin:0;">By conducting rigorous field research and engaging with government stakeholders, Swaniti has provided valuable policy recommendations that have led to improved implementation of various schemes.</p>
+        </div>
+        <div style="position:relative;min-height:400px;overflow:hidden;order:2;">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="Community development" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to left, rgba(0,0,0,0.3), transparent);"></div>
+        </div>
+      </div>
+
+      <!-- Collaborative Frameworks - Full Width Feature Card -->
+      <div style="background:#FFF;border-radius:24px;overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,.1);position:relative;transition:all .4s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 25px 70px rgba(255,71,71,.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 50px rgba(0,0,0,.1)'">
+        <div style="position:relative;height:400px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=1400&q=80" alt="Children collaboration" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:60px;text-align:center;color:#FFF;">
+            <div style="display:inline-block;background:rgba(255,71,71,0.9);padding:12px 20px;border-radius:50px;margin-bottom:20px;">
+              <i class="fas fa-handshake" style="font-size:24px;margin-right:10px;"></i>
+              <span style="font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Collaboration</span>
+            </div>
+            <h3 style="font-size:40px;font-weight:900;margin-bottom:20px;letter-spacing:-0.5px;">Collaborative Frameworks</h3>
+            <p style="font-size:20px;line-height:1.8;max-width:900px;margin:0 auto;opacity:0.95;">Swaniti has successfully built networks between state governments, policy leaders, private sector stakeholders, and communities, creating a collaborative framework for effective governance and developmental growth.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Mobile Responsive Styles -->
+<style>
+@media(max-width:992px){
+  section > div > div > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+  }
+  section > div > div > div[style*="grid-template-columns:1fr 1fr"] > div{
+    order:1 !important;
+  }
+  section h2{
+    font-size:36px !important;
+  }
+  section h3{
+    font-size:26px !important;
+  }
+  section > div > div > div{
+    padding:30px !important;
+  }
+}
+</style>
+<!-- END PROGRAM IMPACT SECTION -->
+
+<!-- START IMPACT STORIES SECTION -->
+<section style="padding:120px 5%;background:#FFF;text-align:center;font-family:'Inter var',sans-serif;position:relative;">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div style="margin-bottom:80px;">
+      <h2 style="color:#1a1a1a;font-size:48px;font-weight:900;margin-bottom:20px;letter-spacing:-1px;">Impact Stories</h2>
+      <div style="width:100px;height:5px;background:#FF4747;margin:0 auto 25px;border-radius:10px;"></div>
+      <p style="font-size:22px;color:#555;max-width:800px;margin:0 auto;line-height:1.7;font-weight:300;">Real stories from the communities we serve</p>
+    </div>
+
+    <!-- Story Cards Grid -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px;margin-bottom:60px;">
+
+      <!-- Story Card 1 -->
+      <div style="background:#FFF;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .3s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="position:relative;height:250px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=800&q=80" alt="Community voices" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <i class="fas fa-users" style="color:#FFF;font-size:50px;opacity:0.9;"></i>
+          </div>
+        </div>
+        <div style="padding:30px;text-align:left;">
+          <h4 style="color:#1a1a1a;font-size:24px;font-weight:800;margin-bottom:15px;">Community Voices</h4>
+          <p style="color:#666;font-size:16px;line-height:1.7;margin-bottom:20px;">Stories showcasing how local communities have taken ownership of sustainable development initiatives.</p>
+          <div style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Story Card 2 -->
+      <div style="background:#FFF;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .3s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="position:relative;height:250px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80" alt="Innovation in action" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <i class="fas fa-lightbulb" style="color:#FFF;font-size:50px;opacity:0.9;"></i>
+          </div>
+        </div>
+        <div style="padding:30px;text-align:left;">
+          <h4 style="color:#1a1a1a;font-size:24px;font-weight:800;margin-bottom:15px;">Innovation in Action</h4>
+          <p style="color:#666;font-size:16px;line-height:1.7;margin-bottom:20px;">Discover how innovative solutions are transforming governance and service delivery across regions.</p>
+          <div style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- Story Card 3 -->
+      <div style="background:#FFF;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .3s ease;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 20px 50px rgba(0,0,0,.12)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,.08)'">
+        <div style="position:relative;height:250px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1546348437-532d954b2bfd?w=800&q=80" alt="Success milestones" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;">
+            <i class="fas fa-award" style="color:#FFF;font-size:50px;opacity:0.9;"></i>
+          </div>
+        </div>
+        <div style="padding:30px;text-align:left;">
+          <h4 style="color:#1a1a1a;font-size:24px;font-weight:800;margin-bottom:15px;">Success Milestones</h4>
+          <p style="color:#666;font-size:16px;line-height:1.7;margin-bottom:20px;">Celebrating achievements and milestones reached through collaborative frameworks and partnerships.</p>
+          <div style="color:#FF4747;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:1px;">Coming Soon</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div style="background:#f8f9fa;padding:60px;border-radius:24px;max-width:800px;margin:0 auto;border:2px solid #e9ecef;">
+      <i class="fas fa-envelope-open-text" style="color:#FF4747;font-size:50px;margin-bottom:20px;"></i>
+      <h3 style="color:#1a1a1a;font-size:28px;font-weight:800;margin-bottom:15px;">Stay Updated</h3>
+      <p style="color:#555;font-size:18px;line-height:1.7;margin-bottom:30px;">Be the first to read our impact stories and learn about new initiatives. Subscribe to our newsletter.</p>
+      <a href="#" style="background:#FF4747;color:#FFF;padding:16px 40px;text-decoration:none;border-radius:50px;font-weight:700;font-size:16px;display:inline-block;transition:.3s;box-shadow:0 5px 20px rgba(255,71,71,0.3);" onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 8px 30px rgba(255,71,71,0.4)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 5px 20px rgba(255,71,71,0.3)'">Subscribe Now</a>
+    </div>
+
+  </div>
+</section>
+<!-- END IMPACT STORIES SECTION -->
+
+<!-- CTA SECTION -->
+<section style="position:relative;overflow:hidden;">
+  <!-- Split Design with Image -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:600px;">
+
+    <!-- Left Side - Image -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1000&q=80" alt="Join our mission" style="width:100%;height:100%;object-fit:cover;position:absolute;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(255,71,71,0.8), rgba(255,71,71,0.4));"></div>
+
+      <!-- Stats Overlay on Image -->
+      <div style="position:absolute;bottom:60px;left:60px;right:60px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;">
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:25px;border-radius:16px;border:2px solid rgba(255,255,255,0.3);">
+            <div style="color:#FFF;font-size:40px;font-weight:900;margin-bottom:8px;">165Mn+</div>
+            <div style="color:#FFF;font-size:13px;opacity:0.95;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Funds Mobilised</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:25px;border-radius:16px;border:2px solid rgba(255,255,255,0.3);">
+            <div style="color:#FFF;font-size:40px;font-weight:900;margin-bottom:8px;">35+</div>
+            <div style="color:#FFF;font-size:13px;opacity:0.95;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Policies Reformed</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:25px;border-radius:16px;border:2px solid rgba(255,255,255,0.3);">
+            <div style="color:#FFF;font-size:40px;font-weight:900;margin-bottom:8px;">8+</div>
+            <div style="color:#FFF;font-size:13px;opacity:0.95;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Countries</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:25px;border-radius:16px;border:2px solid rgba(255,255,255,0.3);">
+            <div style="color:#FFF;font-size:40px;font-weight:900;margin-bottom:8px;">70+</div>
+            <div style="color:#FFF;font-size:13px;opacity:0.95;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Content -->
+    <div style="background:#FFF;padding:80px 60px;display:flex;flex-direction:column;justify-content:center;position:relative;">
+      <div style="position:absolute;top:40px;right:40px;width:120px;height:120px;background:rgba(255,71,71,0.05);border-radius:50%;"></div>
+      <div style="position:absolute;bottom:40px;left:40px;width:80px;height:80px;background:rgba(255,71,71,0.05);border-radius:50%;"></div>
+
+      <div style="position:relative;z-index:1;">
+        <div style="display:inline-block;background:rgba(255,71,71,0.1);padding:10px 20px;border-radius:50px;margin-bottom:25px;">
+          <i class="fas fa-hands-helping" style="color:#FF4747;font-size:18px;margin-right:8px;"></i>
+          <span style="color:#FF4747;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;">Be The Change</span>
+        </div>
+
+        <h2 style="color:#1a1a1a;font-size:48px;font-weight:900;margin-bottom:25px;letter-spacing:-1px;line-height:1.1;">Partner With Us</h2>
+
+        <p style="color:#555;font-size:20px;line-height:1.8;margin-bottom:40px;">
+          Join our mission to drive sustainable change and create lasting impact in communities worldwide through evidence-based policy and collaborative action.
+        </p>
+
+        <!-- Benefits List -->
+        <div style="margin-bottom:40px;">
+          <div style="display:flex;align-items:start;margin-bottom:20px;">
+            <div style="background:#FF4747;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">
+              <i class="fas fa-check" style="color:#FFF;font-size:14px;"></i>
+            </div>
+            <div>
+              <h4 style="color:#1a1a1a;font-size:18px;font-weight:700;margin:0 0 5px 0;">Measurable Results</h4>
+              <p style="color:#666;font-size:15px;margin:0;line-height:1.6;">Track real impact with transparent metrics and data-driven insights.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:start;margin-bottom:20px;">
+            <div style="background:#FF4747;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">
+              <i class="fas fa-check" style="color:#FFF;font-size:14px;"></i>
+            </div>
+            <div>
+              <h4 style="color:#1a1a1a;font-size:18px;font-weight:700;margin:0 0 5px 0;">Global Network</h4>
+              <p style="color:#666;font-size:15px;margin:0;line-height:1.6;">Connect with partners across 8+ countries driving change.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:start;">
+            <div style="background:#FF4747;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:15px;flex-shrink:0;">
+              <i class="fas fa-check" style="color:#FFF;font-size:14px;"></i>
+            </div>
+            <div>
+              <h4 style="color:#1a1a1a;font-size:18px;font-weight:700;margin:0 0 5px 0;">Policy Expertise</h4>
+              <p style="color:#666;font-size:15px;margin:0;line-height:1.6;">Leverage our experience in reforming 35+ policies for social good.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div style="display:flex;gap:15px;flex-wrap:wrap;">
+          <a href="{% url 'v2:about' %}" style="background:#FF4747;color:#FFF;padding:18px 40px;text-decoration:none;border-radius:50px;font-weight:800;font-size:16px;display:inline-block;transition:.3s;box-shadow:0 5px 20px rgba(255,71,71,0.3);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 30px rgba(255,71,71,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 5px 20px rgba(255,71,71,0.3)'">
+            <i class="fas fa-arrow-right" style="margin-right:10px;"></i>Learn More About Us
+          </a>
+          <a href="#" style="background:transparent;color:#FF4747;padding:18px 40px;text-decoration:none;border-radius:50px;font-weight:800;font-size:16px;display:inline-block;transition:.3s;border:3px solid #FF4747;" onmouseover="this.style.background='rgba(255,71,71,0.05)';this.style.transform='translateY(-3px)'" onmouseout="this.style.background='transparent';this.style.transform='translateY(0)'">
+            <i class="fas fa-envelope" style="margin-right:10px;"></i>Get In Touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Mobile Responsive for CTA -->
+<style>
+@media(max-width:992px){
+  section:last-of-type > div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+  }
+  section:last-of-type > div > div{
+    min-height:400px !important;
+  }
+}
+</style>
+<!-- END CTA SECTION -->
+
+{% endblock %}

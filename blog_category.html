@@ -1,0 +1,304 @@
+{% extends 'v2/base.html' %}
+{% load static %}
+
+{% block title %}{{ category.name }} - Research & Insights - Swaniti{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Blog Category Styles */
+.category-hero {
+    height: 50vh;
+    background: linear-gradient(135deg, #FF4747 0%, #FF6B6B 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    font-family: 'Inter var', sans-serif;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.category-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+}
+
+.category-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Inter var', sans-serif;
+}
+
+.categories-filter {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.category-chip {
+    padding: 10px 20px;
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.category-chip:hover,
+.category-chip.active {
+    background: #FF4747;
+    color: white;
+    border-color: #FF4747;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-category {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #FF4747;
+    color: white;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.blog-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: #111;
+}
+
+.blog-card-excerpt {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+.blog-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .category-hero h1 {
+        font-size: 32px;
+    }
+
+    .category-hero p {
+        font-size: 16px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Navigation -->
+<nav style="position:fixed;top:20px;right:5%;z-index:1000;background:#FFF;padding:18px 60px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 20px rgba(0,0,0,0.15);border-bottom-left-radius:10px;transition:.3s ease;">
+  <a href="{% url 'v2:home' %}" style="margin-right:40px;text-decoration:none;color:#FF4747;font-size:24px;font-weight:700;font-family:'Inter var',sans-serif;">Swaniti</a>
+  <ul id="menuLinks" style="display:flex;gap:45px;list-style:none;margin:0;padding:0;">
+    <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Centers</a></li>
+    <li><a href="{% url 'v2:about' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">About us</a></li>
+    <li><a href="{% url 'v2:impact' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Impact</a></li>
+    <li><a href="{% url 'v2:blog_list' %}" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Research and Insights</a></li>
+    <li><a href="#" style="text-decoration:none;color:#000;font-weight:600;margin-left:25px;transition:.3s;font-family:'Inter var',sans-serif;">Events</a></li>
+  </ul>
+  <div id="toggleBtn" class="hamburger" style="display:none;font-size:30px;cursor:pointer;color:#000;z-index:1010;margin-left:40px;">☰</div>
+</nav>
+
+<!-- Mega Menu Wrapper -->
+<div class="menu-wrapper">
+  <div class="mega-menu" style="background:#FF4747;color:#FFF;">
+    <div>
+      <h2 style="font-size:32px;margin-bottom:20px;font-weight:700;font-family:'Inter var',sans-serif;">Our Work</h2>
+      <p style="max-width:400px;line-height:1.7;font-size:16px;opacity:.9;font-family:'Inter var',sans-serif;">Discover our centers of excellence and research insights driving sustainable change worldwide.</p>
+    </div>
+    <div style="display:flex;gap:80px;">
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Centres</h3>
+        <a href="{% url 'v2:centre_detail' 'gcdi' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">GCDI</a>
+        <a href="{% url 'v2:centre_detail' 'clefs' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">CLEFS</a>
+        <a href="{% url 'v2:centre_detail' 'centre-for-sub-national-engagement' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Sub-National Engagement</a>
+        <a href="{% url 'v2:centre_detail' 'centre-for-green-livelihood' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Centre for Green Livelihood</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Research & Insights</h3>
+        <a href="{% url 'v2:blog_list' %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">All Posts</a>
+        {% for cat in categories %}
+        <a href="{% url 'v2:blog_category' cat.slug %}" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">{{ cat.name }}</a>
+        {% endfor %}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Partners</h3>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Global Partners</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Corporate Collaborations</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Foundations & Trusts</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Social Enterprises</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:15px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:1px;opacity:.8;">Get Involved</h3>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Volunteer With Us</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Donate</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Careers</a>
+        <a href="#" style="color:#FFF;text-decoration:none;border-left:2px solid transparent;padding-left:0;font-size:16px;font-family:'Inter var',sans-serif;transition:all .3s;" onmouseover="this.style.paddingLeft='10px';this.style.borderLeftColor='#FFF';" onmouseout="this.style.paddingLeft='0';this.style.borderLeftColor='transparent';">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category Hero Section -->
+<div class="category-hero">
+<div>
+<h1>{{ category.name }}</h1>
+{% if category.description %}
+<p>{{ category.description }}</p>
+{% endif %}
+</div>
+</div>
+
+<!-- Blog Content -->
+<div class="blog-container">
+<!-- Category Filter -->
+<div class="categories-filter">
+<a href="{% url 'v2:blog_list' %}" class="category-chip">All Posts</a>
+{% for cat in categories %}
+<a href="{% url 'v2:blog_category' cat.slug %}" class="category-chip {% if cat == category %}active{% endif %}">{{ cat.name }}</a>
+{% endfor %}
+</div>
+
+<!-- Blog Grid -->
+{% if posts %}
+<div class="blog-grid">
+{% for post in posts %}
+<a href="{% url 'v2:blog_post' post.slug %}" class="blog-card">
+<img src="{{ post.banner_image_url }}" alt="{{ post.title }}" class="blog-card-image">
+<div class="blog-card-content">
+<span class="blog-card-category">{{ category.name }}</span>
+<h3 class="blog-card-title">{{ post.title }}</h3>
+<p class="blog-card-excerpt">{{ post.excerpt|truncatewords:25 }}</p>
+<div class="blog-card-meta">
+<span>{% if post.author %}{{ post.author.get_full_name|default:post.author.username }}{% endif %}</span>
+<span>{{ post.published_at|date:"M d, Y" }}</span>
+</div>
+</div>
+</a>
+{% endfor %}
+</div>
+{% else %}
+<div class="no-posts">
+<p>No blog posts in this category yet.</p>
+<a href="{% url 'v2:blog_list' %}" style="color:#FF4747;text-decoration:underline;font-weight:600;">View all posts</a>
+</div>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const body = document.body;
+const nav = document.querySelector('nav');
+const menuWrapper = document.querySelector('.menu-wrapper');
+let hideTimeout;
+
+// Function to show menu
+function showMenu() {
+  if (window.innerWidth > 1200) {
+    clearTimeout(hideTimeout);
+    body.classList.add('nav-open');
+  }
+}
+
+// Function to hide menu with delay
+function hideMenu() {
+  if (window.innerWidth > 1200) {
+    hideTimeout = setTimeout(() => {
+      body.classList.remove('nav-open');
+    }, 100);
+  }
+}
+
+// Add event listeners to nav
+if (nav) {
+  nav.addEventListener('mouseenter', showMenu);
+  nav.addEventListener('mouseleave', hideMenu);
+}
+
+// Add event listeners to menu wrapper
+if (menuWrapper) {
+  menuWrapper.addEventListener('mouseenter', showMenu);
+  menuWrapper.addEventListener('mouseleave', hideMenu);
+}
+</script>
+{% endblock %}
